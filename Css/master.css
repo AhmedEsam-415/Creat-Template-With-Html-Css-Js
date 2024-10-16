@@ -4,6 +4,73 @@
 body {
   font-family: "Open Sans", sans-serif;
 }
+
+/** Start setting Box */
+.setting-box {
+  position: fixed;
+  left: -200px;
+  top: 0;
+  background-color: rgb(255 255 255);
+  width: 200px;
+  min-height: 100vh;
+  z-index: 100;
+  transition: 0.3s;
+}
+.setting-box.open {
+  left: 0;
+}
+.setting-box .toggle-setting {
+  position: absolute;
+  right: -30px;
+  top: 100px;
+  background-color: white;
+  text-align: center;
+  cursor: pointer;
+}
+.setting-box .toggle-setting .fa-gear {
+  padding: 8px 0;
+  width: 30px;
+}
+.setting-box .option-box {
+  padding: 20px;
+}
+.setting-box .option-box h4 {
+  margin: 0;
+  color: #666;
+}
+.setting-box .option-box .colors-list {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.setting-box .option-box .colors-list li {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+  display: inline-block;
+}
+.setting-box .option-box .colors-list li.active {
+  opacity: 1;
+}
+.setting-box .option-box .colors-list li:first-child {
+  background-color: #ff9800;
+}
+.setting-box .option-box .colors-list li:nth-child(2) {
+  background-color: #e91e63;
+}
+.setting-box .option-box .colors-list li:nth-child(3) {
+  background-color: #009688;
+}
+.setting-box .option-box .colors-list li:nth-child(4) {
+  background-color: #03a9f4;
+}
+.setting-box .option-box .colors-list li:nth-child(5) {
+  background-color: #4caf50;
+}
+/** End setting Box */
 /** Start Landing Page */
 .landing-page {
   min-height: 100vh;
@@ -51,7 +118,7 @@ body {
 }
 
 .header-area .links li a:hover,
-.header-area .links li a.avtive {
+.header-area .links li a.active {
   color: var(--main-color);
 }
 .intoduction-text {
