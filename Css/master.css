@@ -1,0 +1,78 @@
+:root {
+  --main-color: #ff9800;
+}
+body {
+  font-family: "Open Sans", sans-serif;
+}
+/** Start Landing Page */
+.landing-page {
+  min-height: 100vh;
+  background-image: url(../Imags/01.jpg);
+  background-size: cover;
+  position: relative;
+}
+.landing-page .overlay {
+  background-color: rgb(0 0 0 / 0.6);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+.header-area {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  padding: 10px;
+}
+.header-area .logo {
+  width: 300px;
+  padding: 15px;
+  font-weight: bold;
+}
+.header-area .links {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  text-align: right;
+  padding-right: 20px;
+  font-size: 15px;
+}
+.header-area .links li {
+  display: inline-block;
+  margin-left: 10px;
+}
+.header-area .links li a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+.header-area .links li a:hover,
+.header-area .links li a.avtive {
+  color: var(--main-color);
+}
+.intoduction-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+  text-align: center;
+}
+.intoduction-text h1 {
+  font-size: 34px;
+  margin: 0 0 12px;
+}
+.intoduction-text h1 span {
+  color: var(--main-color);
+}
+.intoduction-text p {
+  line-height: 1.6;
+  font-size: 20px;
+  margin: 0;
+}
+/** End Landing Page */
