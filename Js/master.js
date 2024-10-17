@@ -124,3 +124,104 @@ function RandomizImgs() {
   }
 }
 RandomizImgs();
+
+//* Select Skills Selector
+let ourSkills = document.querySelector(".skills");
+
+window.onscroll = function () {
+  //* Skills OffSet Top
+  let skillsOffsetTop = ourSkills.offsetTop;
+
+  //* Skills Outer Height
+  let skillsOuterHeight = ourSkills.offsetHeight;
+
+  //* Window Height
+  let windowHeight = window.innerHeight;
+
+  //* window ScrollTop
+  let windowScrollTop = window.pageYOffset;
+
+  if (windowScrollTop > skillsOffsetTop + skillsOuterHeight - windowHeight) {
+    let allSkills = document.querySelectorAll(
+      ".skill-box .skill-progress span"
+    );
+
+    allSkills.forEach((skill) => {
+      skill.style.width = skill.dataset.progress;
+    });
+  }
+};
+
+//* Creat Popup With The Image
+let ourGallery = document.querySelectorAll(".gallery img");
+
+ourGallery.forEach((img) => {
+  img.addEventListener("click", (e) => {
+    // Creat OverLay Element
+    let overLay = document.createElement("div");
+
+    // Add Class To OverLay
+    overLay.className = "popup-overlay";
+
+    // Apend OverLay To The Body
+    document.body.appendChild(overLay);
+
+    // Creat The Popup
+    let popupBox = document.createElement("div");
+
+    // Add Class To popupbox
+    popupBox.className = "popup-box";
+
+    if (img.alt !== null) {
+      // Creat Heading
+      let imgHeading = document.createElement("h3");
+
+      // Creat Text For Heading
+      let imgText = document.createTextNode(img.alt);
+
+      //Append The Text To The Heading
+      imgHeading.appendChild(imgText);
+
+      // Append The Text Heading To The Popup Box
+      popupBox.appendChild(imgHeading);
+    }
+
+    // Creat The Image
+    let popupImg = document.createElement("img");
+
+    // Set img Src
+    popupImg.src = img.src;
+
+    // Add Image To PopupBox
+    popupBox.appendChild(popupImg);
+
+    // append The Popup Box To The Body
+    document.body.appendChild(popupBox);
+
+    // Creat The Close Span
+    let closeButton = document.createElement("span");
+
+    // Creat The Close Button Text
+    let closeButtonText = document.createTextNode("X");
+
+    // Append Text To CloseButton
+    closeButton.appendChild(closeButtonText);
+
+    // Add Class To CloseButton
+    closeButton.className = "closeButton";
+
+    // Add closeButton To Popup-box
+    popupBox.appendChild(closeButton);
+  });
+});
+
+// Close popup
+document.addEventListener("click", function (e) {
+  if (e.target.classList == "closeButton") {
+    // Remove The Current Popup
+    e.target.parentElement.remove("");
+
+    // Remove OverLay
+    document.querySelector(".popup-overlay").remove();
+  }
+});
