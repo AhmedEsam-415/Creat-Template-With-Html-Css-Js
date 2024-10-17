@@ -59,6 +59,28 @@ let backgroundOption = true;
 //* Variable To Control The Background Interval
 let backgroundInterval;
 
+//* Check If There's Local Storage Random Background Item
+let backgroundItem = localStorage.getItem("background_option");
+
+//* Check If Random Background Local Storage Is Not Empty
+if (backgroundItem !== null) {
+  if (backgroundItem === "true") {
+    backgroundOption = true;
+  } else {
+    backgroundOption = false;
+  }
+  //* Remove Active Class From All Spans
+  document.querySelectorAll(".random-backgrounds span").forEach((e) => {
+    e.classList.remove("active");
+  });
+
+  if (backgroundItem === "true") {
+    document.querySelector(".random-backgrounds .yes").classList.add("active");
+  } else {
+    document.querySelector(".random-backgrounds .No").classList.add("active");
+  }
+}
+
 //* Loop On All Span
 randomBackEl.forEach((span) => {
   //* Click On Every span
@@ -74,9 +96,11 @@ randomBackEl.forEach((span) => {
     if (e.target.dataset.background === "yes") {
       backgroundOption = true;
       RandomizImgs();
+      localStorage.setItem("background_option", true);
     } else {
       backgroundOption = false;
       clearInterval(backgroundInterval);
+      localStorage.setItem("background_option", false);
     }
   });
 });

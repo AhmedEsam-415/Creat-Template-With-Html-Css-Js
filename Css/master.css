@@ -7,6 +7,12 @@
 body {
   font-family: "Open Sans", sans-serif;
 }
+.container {
+  width: 1170px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
 
 /** Start setting Box */
 .setting-box {
@@ -103,7 +109,7 @@ body {
 /** Start Landing Page */
 .landing-page {
   min-height: 100vh;
-  background-image: url(../Imags/01.jpg);
+  background-image: url(../Imgs/01.jpg);
   background-size: cover;
   position: relative;
 }
@@ -173,3 +179,75 @@ body {
   margin: 0;
 }
 /** End Landing Page */
+
+/** Start about-us */
+.about-us {
+  padding: 50px 0;
+  display: flex;
+}
+.about-us .info-box {
+  flex: 1;
+  padding: 30px;
+}
+.about-us .info-box h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--main-color);
+  margin: 0 0 10px;
+}
+.about-us .info-box p {
+  line-height: 1.8;
+  color: #767676;
+  margin: 0;
+}
+.about-us .image-box {
+  flex: 1;
+  text-align: center;
+}
+.about-us .image-box img {
+  width: 250px;
+}
+/** End about-us */
+
+/** Start skills */
+.skills {
+  padding: 50px 0;
+  background-color: #eee;
+}
+.skills h2 {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--main-color);
+  margin: 0 0 10px;
+  text-align: center;
+}
+.skills .skill-box {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+.skills .skill-name {
+  font-weight: bold;
+  width: 140px;
+  text-align: center;
+  line-height: 30px;
+}
+.skills .skill-progress {
+  height: 30px;
+  width: calc(100% - 110px);
+  background-color: #f6f6f6;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+.skills .skill-progress span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 45%;
+  height: 100%;
+  background-color: var(--main-color);
+}
+/** End skills */
