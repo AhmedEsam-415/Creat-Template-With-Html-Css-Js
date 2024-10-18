@@ -28,6 +28,7 @@ toggle.onclick = function () {
 
 //* Switch Colors
 const colorsli = document.querySelectorAll(".colors-list li");
+
 //* Loop On All List Items
 colorsli.forEach((li) => {
   //* Click On Every List Item
@@ -40,13 +41,7 @@ colorsli.forEach((li) => {
     //* Set Color On localStorage
     localStorage.setItem("color", e.target.dataset.color);
 
-    //* Remove Active Class From All Children
-    e.target.parentElement.querySelectorAll(".active").forEach((element) => {
-      element.classList.remove("active");
-    });
-
-    //* Add Active Class On Self
-    e.target.classList.add("active");
+    handleActive(e);
   });
 });
 
@@ -85,13 +80,7 @@ if (backgroundItem !== null) {
 randomBackEl.forEach((span) => {
   //* Click On Every span
   span.addEventListener("click", (e) => {
-    //* Remove Active Class From All Span
-    e.target.parentElement.querySelectorAll(".active").forEach((element) => {
-      element.classList.remove("active");
-    });
-
-    //* Add Active Class On Self
-    e.target.classList.add("active");
+    handleActive(e);
 
     if (e.target.dataset.background === "yes") {
       backgroundOption = true;
@@ -229,10 +218,59 @@ document.addEventListener("click", function (e) {
 // Select All Bullets
 const allBullets = document.querySelectorAll(".nav-bullets .bullets");
 
-allBullets.forEach((bullet) => {
-  bullet.addEventListener("click", (e) => {
-    document.querySelector(e.target.dataset.section).scrollIntoView({
-      behavior: "smooth",
+// Select All links
+const alllinks = document.querySelectorAll(".landing-page .links a");
+
+function scrolltoSomeWhere(elements) {
+  elements.forEach((ele) => {
+    ele.addEventListener("click", (e) => {
+      e.preventDefault();
+      document.querySelector(e.target.dataset.section).scrollIntoView({
+        behavior: "smooth",
+      });
     });
+  });
+}
+scrolltoSomeWhere(allBullets);
+scrolltoSomeWhere(alllinks);
+
+// Handel Active State
+function handleActive(ev) {
+  //* Remove Active Class From All Children
+  ev.target.parentElement.querySelectorAll(".active").forEach((element) => {
+    element.classList.remove("active");
+  });
+
+  //* Add Active Class On Self
+  ev.target.classList.add("active");
+}
+
+let bulletsSpan = document.querySelectorAll(".bullets-Optional span");
+let bulletsContainer = document.querySelector(".nav-bullets");
+let bulletLocalItem = localStorage.getItem("bullets-option");
+
+if (bulletLocalItem !== null) {
+  bulletsSpan.forEach((span) => {
+    span.classList.remove("active");
+  });
+  if (bulletLocalItem === "show") {
+    bulletsContainer.style.display = "block";
+    document.querySelector(".bullets-Optional .yes").classList.add("active");
+  } else {
+    bulletsContainer.style.display = "none";
+    document.querySelector(".bullets-Optional .No").classList.add("active");
+  }
+}n
+
+bulletsSpan.forEach((span) => {
+  span.addEventListener("click", (e) => {
+    if (span.dataset.display == "show") {
+      bulletsContainer.style.display = "block";
+      localStorage.setItem("bullets-option", e.target.dataset.display);
+    } else {
+      bulletsContainer.style.display = "none";
+      localStorage.setItem("bullets-option", e.target.dataset.display);
+    }
+    handleActive(e);
   });
 });

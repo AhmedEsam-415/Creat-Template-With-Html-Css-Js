@@ -24,6 +24,7 @@ body {
   min-height: 100vh;
   z-index: 100;
   transition: 0.3s;
+  border: 2px solid #eee;
 }
 .setting-box.open {
   left: 0;
@@ -87,10 +88,10 @@ body {
   background-color: #4caf50;
 }
 
-.setting-box .random-backgrounds .yes,
-.setting-box .random-backgrounds .No {
+.setting-box .option-box .yes,
+.setting-box .option-box .No {
   width: 50px;
-  background-color: #009688;
+  background-color: var(--main-color);
   color: white;
   margin-top: 10px;
   display: inline-block;
@@ -101,7 +102,7 @@ body {
   opacity: 0.5;
   cursor: pointer;
 }
-.setting-box .option-box .random-backgrounds span.active {
+.setting-box .option-box span.active {
   opacity: 1;
 }
 
