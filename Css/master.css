@@ -465,3 +465,82 @@ body {
   line-height: 1.6;
 }
 /** End Featuers */
+
+/** Start Testimotials */
+.testimonials {
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+.testimonials::before {
+  content: "";
+  position: absolute;
+  width: 50%;
+  left: 0;
+  top: 0;
+  background-color: var(--main-color);
+  height: 100%;
+}
+.testimonials::after {
+  content: "";
+  position: absolute;
+  width: 50%;
+  right: 0;
+  top: 0;
+  background-color: #333;
+  height: 100%;
+}
+.testimonials h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: white;
+  margin: 0 0 60px;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+.testimonials .ts-box {
+  position: relative;
+  z-index: 2;
+  float: left;
+  width: calc(98% / 3);
+  background-color: white;
+  padding: 20px;
+}
+.testimonials .ts-box:not(:last-of-type) {
+  margin-right: 1%;
+}
+
+.testimonials .ts-box > p {
+  margin: 0 0 20px;
+  line-height: 1.4;
+  font-size: 18px;
+  color: #707070;
+  font-style: italic;
+}
+.testimonials .ts-box .person-info {
+  display: flex;
+}
+
+.testimonials .ts-box .person-info img {
+  width: 100px;
+  border-radius: 50%;
+  margin-right: 15px;
+  margin-left: 10px;
+}
+.testimonials .ts-box .person-info .person-text {
+  flex: 1;
+}
+.testimonials .ts-box .person-info h4 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 15px 0 5px;
+}
+
+.testimonials .ts-box .person-info p {
+  color: #707077;
+  margin: 0;
+  font-style: italic;
+  text-decoration: underline;
+}
+/** End Testimotials */
