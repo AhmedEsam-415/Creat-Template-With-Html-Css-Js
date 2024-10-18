@@ -106,6 +106,55 @@ body {
 }
 
 /** End setting Box */
+
+/** Start Nav Bullets */
+.nav-bullets {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  z-index: 1000;
+}
+.nav-bullets .bullets {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 3px solid var(--main-color);
+  margin: 20px auto;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+.nav-bullets .bullets .tooltip {
+  background-color: var(--main-color);
+  width: 120px;
+  color: white;
+  padding: 8px 10px;
+  position: absolute;
+  right: 32px;
+  top: -10px;
+  text-align: center;
+  cursor: default;
+  pointer-events: none;
+  display: none;
+}
+.nav-bullets .bullets:hover .tooltip {
+  display: block;
+}
+.nav-bullets .bullets .tooltip::before {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 0;
+  border: 10px solid;
+  border-color: transparent transparent transparent var(--main-color);
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+}
+/** End Nav Bullets */
+
 /** Start Landing Page */
 .landing-page {
   min-height: 100vh;

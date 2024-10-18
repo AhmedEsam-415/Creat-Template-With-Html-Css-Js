@@ -217,11 +217,22 @@ ourGallery.forEach((img) => {
 
 // Close popup
 document.addEventListener("click", function (e) {
-  if (e.target.classList === "closeButton") {
+  if (e.target.classList == "closeButton") {
     // Remove The Current Popup
     e.target.parentElement.remove();
 
     // Remove OverLay
     document.querySelector(".popup-overlay").remove();
   }
+});
+
+// Select All Bullets
+const allBullets = document.querySelectorAll(".nav-bullets .bullets");
+
+allBullets.forEach((bullet) => {
+  bullet.addEventListener("click", (e) => {
+    document.querySelector(e.target.dataset.section).scrollIntoView({
+      behavior: "smooth",
+    });
+  });
 });
