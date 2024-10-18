@@ -419,3 +419,49 @@ body {
   left: -20px;
 }
 /** End timeline  */
+
+/** Start Featuers  */
+.featuers {
+  padding: 80px 0;
+}
+.featuers h2 {
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin: 0 0 60px;
+  text-align: center;
+}
+.featuers .container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.featuers .feat-box {
+  width: calc(98% / 3);
+  text-align: center;
+  margin-bottom: 40px;
+}
+.featuers .feat-box img {
+  width: 96px;
+}
+.featuers .feat-box h4 {
+  font-size: 22px;
+  margin: 15px 0 40px;
+  position: relative;
+}
+.featuers .feat-box h4::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 4px;
+  background-color: var(--main-color);
+  left: 50%;
+  margin-left: -20px;
+  bottom: -22px;
+}
+.featuers .feat-box p {
+  width: 80%;
+  margin: 0 auto;
+  color: #706f6f;
+  line-height: 1.6;
+}
+/** End Featuers */
