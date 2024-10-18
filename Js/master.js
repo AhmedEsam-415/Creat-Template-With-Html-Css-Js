@@ -260,7 +260,7 @@ if (bulletLocalItem !== null) {
     bulletsContainer.style.display = "none";
     document.querySelector(".bullets-Optional .No").classList.add("active");
   }
-}n
+}
 
 bulletsSpan.forEach((span) => {
   span.addEventListener("click", (e) => {
@@ -274,3 +274,19 @@ bulletsSpan.forEach((span) => {
     handleActive(e);
   });
 });
+
+// Reaset Button
+document.querySelector(".reset-option").onclick = () => {
+  let removed = ["bullets-option", "background_option", "color"];
+
+  removed.forEach((ele) => {
+    localStorage.removeItem(ele);
+  });
+
+  // localStorage.removeItem("bullets-option");
+  // localStorage.removeItem("background_option");
+  // localStorage.removeItem("color");
+
+  //* Reload Window
+  window.location.reload();
+};
