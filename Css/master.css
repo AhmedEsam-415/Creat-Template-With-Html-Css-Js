@@ -183,6 +183,10 @@ body {
   top: 0;
   z-index: 1;
 }
+.landing-page .container {
+  position: relative;
+  z-index: 1000;
+}
 .header-area {
   position: relative;
   z-index: 2;
@@ -260,11 +264,17 @@ body {
   color: white;
   z-index: 2;
   text-align: center;
-  width: 80%;
+  width: 95%;
 }
+
 .intoduction-text h1 {
   font-size: 34px;
   margin: 0 0 12px;
+}
+@media (max-width: 575px) {
+  .intoduction-text h1 {
+    font-size: 26px;
+  }
 }
 .intoduction-text h1 span {
   color: var(--main-color);
@@ -308,9 +318,20 @@ body {
   padding: 50px 0;
   display: flex;
 }
+@media (max-width: 767px) {
+  .about-us {
+    display: block;
+    text-align: center;
+  }
+}
 .about-us .info-box {
   flex: 1;
   padding: 30px;
+}
+@media (max-width: 767px) {
+  .about-us .info-box {
+    padding: 0;
+  }
 }
 .about-us .info-box h2 {
   font-size: 30px;
@@ -337,6 +358,7 @@ body {
   padding: 50px 0;
   background-color: #eee;
 }
+
 .skills h2 {
   font-size: 30px;
   font-weight: bold;
@@ -351,11 +373,23 @@ body {
   padding: 15px;
   margin-bottom: 15px;
 }
+@media (max-width: 767px) {
+  .skills .skill-box {
+    display: block;
+  }
+}
 .skills .skill-name {
   font-weight: bold;
   width: 140px;
   text-align: center;
   line-height: 30px;
+}
+@media (max-width: 767px) {
+  .skills .skill-name {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+  }
 }
 .skills .skill-progress {
   height: 30px;
@@ -379,6 +413,7 @@ body {
 /** Start Gallery  */
 .gallery {
   padding: 50px 0;
+  text-align: center;
 }
 
 .gallery h2 {
@@ -481,6 +516,19 @@ body {
   margin-bottom: 40px;
   position: relative;
 }
+@media (max-width: 767px) {
+  .timeline .timeline-content .left,
+  .timeline .timeline-content .right {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .timeline .timeline-content .left::before,
+  .timeline .timeline-content .right::before,
+  .timeline .timeline-content .left .content::before,
+  .timeline .timeline-content .right .content::before {
+    display: none;
+  }
+}
 .timeline .timeline-content .left {
   float: left;
 }
@@ -563,6 +611,16 @@ body {
   text-align: center;
   margin-bottom: 40px;
 }
+@media (max-width: 991px) {
+  .featuers .feat-box {
+    width: calc(100% / 2);
+  }
+}
+@media (max-width: 575px) {
+  .featuers .feat-box {
+    width: 100%;
+  }
+}
 .featuers .feat-box img {
   width: 96px;
 }
@@ -629,6 +687,34 @@ body {
   width: calc(98% / 3);
   background-color: white;
   padding: 20px;
+}
+@media (max-width: 767px) {
+  .testimonials .ts-box {
+    background-color: white;
+    width: 100%;
+    margin-bottom: 25px;
+  }
+
+  .testimonials h2 {
+    text-align: center;
+  }
+  .testimonials .ts-box .person-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (min-width: 767px) and (max-width: 991px) {
+  .testimonials .ts-box {
+    position: relative;
+    z-index: 2;
+    float: left;
+    width: 100%;
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+  }
 }
 .testimonials .ts-box:not(:last-of-type) {
   margin-right: 1%;
@@ -701,12 +787,22 @@ body {
   max-width: 800px;
   margin: auto;
 }
+
 .contact form .left {
   width: 49%;
   margin-right: 2%;
 }
 .contact form .right {
   width: 49%;
+}
+@media (max-width: 575px) {
+  .contact form {
+    display: block;
+  }
+  .contact form .left,
+  .contact form .right {
+    width: 100%;
+  }
 }
 .contact form input:not([type="submit"]),
 .contact form textarea {
