@@ -8,7 +8,7 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 .container {
-  width: 1170px;
+  /* width: 1170px; */
   padding-left: 15px;
   padding-right: 15px;
   margin: auto;
@@ -195,13 +195,16 @@ body {
   padding: 15px;
   font-weight: bold;
 }
+.header-area .links-container {
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 .header-area .links {
   list-style: none;
-  padding: 0;
-  width: 100%;
+  padding-left: 0;
   text-align: right;
-  padding-right: 20px;
-  font-size: 15px;
 }
 .header-area .links li {
   display: inline-block;
@@ -216,6 +219,38 @@ body {
 .header-area .links li a:hover,
 .header-area .links li a.active {
   color: var(--main-color);
+}
+.header-area .toggle-menu {
+  background: none;
+  border: none;
+  width: 40px;
+  cursor: pointer;
+  display: none;
+  position: relative;
+}
+.header-area .toggle-menu.menu-active::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 10px solid;
+  border-color: transparent transparent white transparent;
+  bottom: -17px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.header-area .toggle-menu:focus {
+  outline: none;
+}
+.header-area .toggle-menu span {
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  height: 4px;
+  margin-bottom: 4px;
+}
+.header-area .toggle-menu span.active {
+  background-color: var(--main-color);
 }
 .intoduction-text {
   position: absolute;
@@ -238,6 +273,33 @@ body {
   line-height: 1.6;
   font-size: 20px;
   margin: 0;
+}
+@media (max-width: 991px) {
+  .header-area .links {
+    display: none;
+  }
+  .header-area .links.open {
+    display: block;
+    background-color: #fff;
+    padding: 10px;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    border-radius: 4px;
+  }
+  .header-area .links.open li {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .header-area .links.open li a {
+    color: var(--main-color);
+    font-weight: bold;
+  }
+  .header-area .toggle-menu {
+    display: block;
+  }
 }
 /** End Landing Page */
 
@@ -680,3 +742,35 @@ body {
   transition: 0.3s;
 }
 /** End Contact Us  */
+
+/** Start Grid System */
+
+/* Small Devices => Landscape Phone */
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+
+/* Medium Devices => Tablets */
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* Desktops */
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* Larg Screen */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/** End Grid System */

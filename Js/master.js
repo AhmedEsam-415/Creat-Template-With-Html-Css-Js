@@ -283,10 +283,40 @@ document.querySelector(".reset-option").onclick = () => {
     localStorage.removeItem(ele);
   });
 
-  // localStorage.removeItem("bullets-option");
-  // localStorage.removeItem("background_option");
-  // localStorage.removeItem("color");
-
   //* Reload Window
   window.location.reload();
+};
+
+// Toggle Menu
+let toggleBtn = document.querySelector(".toggle-menu");
+let tLinks = document.querySelector(".links");
+
+toggleBtn.onclick = function (e) {
+  // Stop Propagation
+  e.stopPropagation();
+
+  // Toggle Class "menu-active" On Button
+  this.classList.toggle("menu-active");
+
+  // Toggle Class "open" On links
+  tLinks.classList.toggle("open");
+};
+
+// Click Anywher Outside Menu And Toggle Button
+document.addEventListener("click", (e) => {
+  if (e.target !== toggleBtn && e.target !== tLinks) {
+    // Check If menu Is Open
+    if (tLinks.classList.contains("open")) {
+      // Toggle Class "menu-active" On Button
+      toggleBtn.classList.toggle("menu-active");
+
+      // Toggle Class "open" On links
+      tLinks.classList.toggle("open");
+    }
+  }
+});
+
+// Stop Propagation On Menu
+tLinks.onclick = (e) => {
+  e.stopPropagation();
 };
